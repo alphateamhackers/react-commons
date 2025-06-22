@@ -1,25 +1,16 @@
 export const buildQueryString = (
-  data: Record<string, string | number | undefined>
+  data?: Record<string, string | number | undefined>
 ) => {
-  let queryString = "?";
-
   if (!data) {
     return "";
   }
 
-  Object.keys({ ...data }).forEach((filterKey, index) => {
-    const filterValue = (data as Record<string, string | number>)[filterKey];
+  const queryParts = Object.entries(data)
+    .filter(([_, value]) => value !== undefined && value !== null)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(value!)}`
+    );
 
-    if (!filterValue) {
-      return;
-    }
-
-    if (index !== 0) {
-      queryString += "&";
-    }
-
-    queryString += `${filterKey}=${filterValue}`;
-  });
-
-  return queryString;
+  return `?${queryParts.join("&")}`;
 };

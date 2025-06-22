@@ -1,6 +1,6 @@
 {
   "name": "@alphateamhackers/react-commons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Common methods and functions for building React web applications",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
