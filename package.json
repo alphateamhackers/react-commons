@@ -21,6 +21,9 @@
     "type": "git",
     "url": "git+https://github.com/alphateamhackers/react-commons.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "react",
     "utils",
